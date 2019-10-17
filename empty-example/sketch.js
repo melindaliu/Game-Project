@@ -5,6 +5,6 @@ function setup() {
 
 function draw(){
 	background(0,41,255);
-  line(0,40);
+  triangle(10,100,30,75,50,100)
 
 }
