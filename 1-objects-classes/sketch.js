@@ -5,8 +5,6 @@ let thirdBall;
 let bob;
 
 function setup() {
-  b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new Ball(200,20,"green");
   createCanvas(800, 800);
   b = new Ball(0, 40,"red"); //make a new ball from the Ball class and call it b.
   anotherBall = new Ball(200,30,"green");
@@ -25,7 +23,6 @@ function draw(){
     thirdBall.moveBall();
     bob.drawPerson();
     bob.movePerson();
-
 }
 
 //ball class from which to create new balls with similar properties.
@@ -41,15 +38,15 @@ class Ball {
 		    ellipse(this.x,this.y,10,10);
 	}
 	moveBall(){ //update the location of the ball, so it moves across the screen
-		this.x = this.x+2;
-		this.y = this.y+3;
+		this.x = this.x+7;
+		this.y = this.y+6;
 	}
 }
 
 class Person {
   constructor(x,y,color){
-        this.x = x;
-        this.y = y;
+        this.x = x+6;
+        this.y = y+6;
         this.color= color;
   }
   drawPerson(){
@@ -58,7 +55,7 @@ class Person {
         rect(this.x,this.y,15,15);
   }
   movePerson(){
-        this.x = this.x+1;
-        this.y = this.y+3;
+        this.x = this.x+6;
+        this.y = this.y+7;
   }
 }
