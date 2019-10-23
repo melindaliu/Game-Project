@@ -3,6 +3,7 @@ let b;
 let anotherBall;
 let thirdBall;
 let bob;
+let shape;
 
 function setup() {
   createCanvas(800, 800);
@@ -10,6 +11,7 @@ function setup() {
   anotherBall = new Ball(200,30,"green");
   thirdBall = new Ball(100,10,"blue");
   bob = new Person(0,0,"yellow");
+  shape = new Triangle(0,10,5,0,10,10,"purple");
 }
 
 
@@ -57,5 +59,15 @@ class Person {
   movePerson(){
         this.x = this.x+6;
         this.y = this.y+7;
+  }
+}
+class Triangle {
+  constructor(x,y,x,y,x,y){
+        this.x = x+5;
+        this.y = x+5;
+        this.x = x+5;
+        this.y = x+5;
+        this.x = x+5;
+        this.y = x+5;
   }
 }
