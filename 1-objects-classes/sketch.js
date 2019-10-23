@@ -69,9 +69,5 @@ class Triangle {
         this.y2=y2+5;
         this.x3=x3+5;
         this.y3=x3+5;
-  drawTriangle(){
-        stroke(1);
-        fill(this.color);
-        triangle(this.x1,this.y1,this.x2,this.y2,this.x3,this.y3,20,20);
   }
 }
