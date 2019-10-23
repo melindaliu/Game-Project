@@ -47,8 +47,8 @@ class Ball {
 
 class Person {
   constructor(x,y,color){
-        this.x = x+6;
-        this.y = y+6;
+        this.x=x+6;
+        this.y=y+6;
         this.color= color;
   }
   drawPerson(){
@@ -57,8 +57,8 @@ class Person {
         rect(this.x,this.y,15,15);
   }
   movePerson(){
-        this.x = this.x+6;
-        this.y = this.y+7;
+        this.x=this.x+6;
+        this.y=this.y+7;
   }
 }
 class Triangle {
