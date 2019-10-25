@@ -1,4 +1,3 @@
-
 //create an empty array called balls
 
 let balls = [];
