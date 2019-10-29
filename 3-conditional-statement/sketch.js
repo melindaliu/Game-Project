@@ -4,17 +4,20 @@ let balls = [];
 //create a variable to hold your avatar
 let me;
 
+//create a varible to count score
+let score=0;
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(1200, 725);
 
   //make one avatar called me
-  me = new Avatar(width/2, 300, 3);
+  me = new Avatar(width/2, 300, 4);
 
 }
 
 function draw(){
 	background(220);
+  text(score,100,100);
 
   me.drawMe();
   me.moveMe();
@@ -45,8 +48,8 @@ class Avatar {
 
 	drawMe(){  // draw the running person
     		stroke("green");
-        strokeWeight(3);
-    		fill("blue");
+        strokeWeight(5);
+    		fill("green");
 		    ellipse(this.x,this.y,20,20);
         line(this.x,this.y, this.x, this.y+40);
         line(this.x, this.y+40, this.x-20, this.y+60);
@@ -57,22 +60,26 @@ class Avatar {
 	}
 
 	moveMe(){
-    if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
-       this.y -= this.speed;
+    if (keyIsDown(DOWN_ARROW)) { //if you hold the up arrow, move up by speed
+       this.y += this.speed;
     }
 
-    if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
-        this.y += this.speed;
+    if (keyIsDown(UP_ARROW)) {//if you hold the down arrow, move down by speed
+        this.y -= this.speed;
     }
-	}
 
-  die(){
+    if (keyIsDown(LEFT_ARROW)) {//if you hold the left arrow, move left by speed
+        this.x -= this.speed;
+	  }
 
-  }
+    if (keyIsDown(RIGHT_ARROW)) {//if you hold the right arrow, move right by speed}
+        this.x += this.speed;
+    }
+
+
 
 }
-
-
+}
 //ball class from which to create new balls with similar properties.
 class Ball {
 
@@ -98,10 +105,10 @@ class Ball {
 	}
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-      			this.speed = -this.speed;
-    		}
-  	}
-
+  bounceBall(){
+    	if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+      		this.speed = -this.speed;
+          score=score+1
+    	}
+  }
 }
