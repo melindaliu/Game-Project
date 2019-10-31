@@ -7,8 +7,8 @@ let me;
 let mySound;
 
 function preload() {
-  soundFormats('mp3', 'ogg');
-  mySound = loadSound('boing1.mp3');
+  soundFormats('wav', 'ogg');
+  mySound = loadSound('boop.wav');
 }
 
 function setup() {
@@ -26,7 +26,7 @@ function draw(){
   me.moveMe();
 
   if (frameCount % 25 == 0) {
-      let  b = new Ball(width, random(0,height), -3);
+      let  b = new Ball(width, random(0,height), -3,false);
       balls.push(b);
       console.log(balls); //print the balls array to the console
     }
@@ -83,10 +83,11 @@ class Avatar {
 class Ball {
 
 	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
+	constructor(x,y, speed,hit){
 		this.x = x;
     		this.y = y;
         	this.speed = speed;
+          this.hit=hit;
 	}
 
 	// draw a ball on the screen at x,y
@@ -105,10 +106,11 @@ class Ball {
 
 	//if the ball hits the paddle, change the speed value to negative (send it in the opposite direction)
   	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40 && this.hit == false){
       			this.speed = -this.speed;
-            mySound.setVolume(0.1);
-            mySound.play();
+            this.hit = true;
+        mySound.setVolume(0.1);
+        mySound.play();
     		}
   	}
 
